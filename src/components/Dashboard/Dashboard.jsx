@@ -3,17 +3,14 @@ import { statsData, orderData } from "../../data";
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-col space-y-6 p-6 lg:p-6 xl:p-14 w-full text-white">
-      {/* Greeting Section */}
+    <div className="flex flex-col space-y-6 p-8 lg:p-10 xl:p-14 w-full text-white">
       <h1 className="text-2xl font-semibold my-4 lg:my-6">
         Good afternoon, Erica
       </h1>
-
-      {/* Overview Header */}
       <div className="flex items-center justify-between">
         <h4>Overview</h4>
         <select
-          className="text-white bg-zinc-800 border-zinc-400 p-2 rounded-md shadow-xl"
+          className="text-white bg-neutral-700 border-dark p-2 rounded-md shadow-xl"
           defaultValue="Last week"
         >
           <option>Today</option>
@@ -21,8 +18,6 @@ const Dashboard = () => {
           <option>Last month</option>
         </select>
       </div>
-
-      {/* <hr className="mt-8 border-b-gray-400 border-b-[0.2px] opacity-10" /> */}
 
       {/* Overview Stats Section */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-2">
@@ -49,15 +44,23 @@ const StatsCard = ({ stat }) => (
   <div className="flex flex-col gap-6 p-6 lg:p-4 xl:p-6">
     <hr className="mb-4 border-b-gray-400 border-b-[0.2px] opacity-10" />
     <h2 className="text-sm text-gray-100">{stat.title}</h2>
-    <p className="text-3xl font-bold">{stat.value}</p>
-    <p className="text-gray-400 text-sm">
+    <p className="text-3xl font-medium	">{stat.value}</p>
+    <p className="text-neutral-500 text-sm">
       <span
         className={`${
           stat.changeType === "increase" ? "bg-green-500" : "bg-pink-500"
-        } p-1 rounded-md text-white`}
+        } p-1 rounded-md text-white `}
       >
         {stat.change}
+        <br
+          className=" flex 
+         lg:hidden"
+        />
       </span>
+      <br
+        className=" flex 
+         lg:hidden"
+      />
       &nbsp;{stat.description}
     </p>
   </div>
@@ -69,7 +72,7 @@ const StatsCard = ({ stat }) => (
 const OrderTable = () => (
   <table className="w-full text-left">
     <thead>
-      <tr className="text-gray-400 text-sm lg:text-base border-b border-gray-700">
+      <tr className="text-neutral-400 text-sm lg:text-base border-b border-gray-700">
         <th className="py-3 px-6 lg:px-2 ">Order number</th>
         <th className="py-3 px-6 lg:px-2 ">Purchase date</th>
         <th className="py-3 px-6 lg:px-2 ">Customer</th>
@@ -90,14 +93,14 @@ const OrderRow = ({ order }) => (
     <td className="py-3 px-6 lg:px-2 text-xs lg:text-base">
       {order.orderNumber}
     </td>
-    <td className="py-3 px-6 lg:px-2 text-xs lg:text-base text-gray-500">
+    <td className="py-3 px-6 lg:px-2 text-xs lg:text-base text-neutral-500">
       {order.date}
     </td>
     <td className="py-3 px-6 lg:px-2 text-xs lg:text-base">
       {order.customerName}
     </td>
     <td className="py-3 px-6 lg:px-2 text-xs lg:text-base flex items-center gap-2">
-      <div className="w-8 h-8 ">
+      <div className="w-6 h-6 lg:w-8 lg:h-8 ">
         <img
           src={order.image}
           alt="images"

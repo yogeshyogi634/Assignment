@@ -25,8 +25,8 @@ const Sidebar = ({ sidebarOpen }) => {
   ];
 
   return (
-    <aside
-      className={`bg-black z-50 text-white w-full h-full lg:h-full lg:static fixed lg:translate-x-0 transform transition-transform duration-1000 ease-in-out ${
+    <div
+      className={`bg-dark z-30 text-white w-40% h-full lg:h-full lg:static fixed lg:translate-x-0 transform transition-transform duration-1000 ease-in-out ${
         sidebarOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
@@ -48,7 +48,7 @@ const Sidebar = ({ sidebarOpen }) => {
               <li key={index}>
                 <a
                   href="#"
-                  className="hover:text-gray-400 flex items-center gap-4"
+                  className="hover:text-lighter flex items-center gap-4"
                 >
                   {item.icon}
                   {item.label}
@@ -60,10 +60,10 @@ const Sidebar = ({ sidebarOpen }) => {
 
         {/* Upcoming Features */}
         <div>
-          <p className="text-gray-400 text-sm mb-4 mt-12">Upcoming Events</p>
+          <p className="text-neutral-500 text-sm mb-4 mt-12">Upcoming Events</p>
           <div className="flex flex-col gap-4 text-base">
             {upcomingEvents.map((event, index) => (
-              <p key={index} className=" hover:text-gray-400 cursor-pointer">
+              <p key={index} className=" hover:text-lighter cursor-pointer">
                 {event}
               </p>
             ))}
@@ -74,11 +74,11 @@ const Sidebar = ({ sidebarOpen }) => {
       {/*  Profile and Support Section */}
       <div className="absolute bottom-0 w-full hidden lg:flex flex-col p-10  ">
         <div className="flex flex-col gap-4">
-          <div className="hover:text-gray-400 flex items-center gap-4 cursor-pointer">
+          <div className="hover:text-lighter flex items-center gap-4 cursor-pointer">
             <HelpIcon />
             Support
           </div>
-          <div className="hover:text-gray-400 flex items-center gap-4 cursor-pointer">
+          <div className="hover:text-lighter flex items-center gap-4 cursor-pointer">
             <AutoAwesomeIcon />
             <p>Changelog</p>
           </div>
@@ -87,7 +87,7 @@ const Sidebar = ({ sidebarOpen }) => {
         {/* Profile */}
         <Profile />
       </div>
-    </aside>
+    </div>
   );
 };
 

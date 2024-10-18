@@ -13,7 +13,14 @@ const Profile = () => {
   return (
     <div className="relative">
       {/* Profile Button */}
-      <button onClick={toggleProfile} className="flex items-center gap-2">
+
+      <button
+        onClick={toggleProfile}
+        // className="flex items-center gap-2"
+        className={`flex items-center gap-2 transition duration-300 ${
+          open ? "bg-light" : "bg-transparent"
+        } p-2 rounded-lg`}
+      >
         <div className="w-8 h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12">
           <img
             src="https://img.freepik.com/free-photo/close-up-young-person-barbeque_23-2149271990.jpg"
@@ -30,9 +37,9 @@ const Profile = () => {
         </div>
       </button>
 
-      {/* Dropdown Menu */}
+      {/* Popup Menu */}
       {open && (
-        <div className="absolute bg-zinc-800 lg:bg-zinc-900 text-white p-4 lg:p-2 xl:p-3 shadow-lg top-10 lg:top-auto lg:bottom-16 right-0 w-60 lg:w-full h-fit rounded-lg flex flex-col gap-4 cursor-pointer">
+        <div className="absolute bg-dark lg:bg-light text-white p-4 lg:p-2 xl:p-3 shadow-lg top-12 lg:top-auto lg:bottom-20 right-0 w-60 lg:w-full h-fit rounded-lg flex flex-col gap-4 cursor-pointer">
           <MenuItem icon={<AccountCircleIcon />} label="My account" />
           <Divider />
           <MenuItem icon={<VerifiedUserIcon />} label="Privacy policy" />
