@@ -7,7 +7,7 @@ const Navbar = ({ setSidebarOpen, sidebarOpen }) => {
   const toggleSidebar = () => setSidebarOpen((prev) => !prev);
 
   return (
-    <nav className="flex justify-between items-center p-8 text-white lg:hidden">
+    <nav className="flex justify-between items-center px-6 py-4 text-white lg:hidden sticky top-0 z-50 bg-lightGray shadow-lg">
       {/* Sidebar Toggle Button */}
       <button onClick={toggleSidebar} className="text-white z-50">
         {sidebarOpen ? <CloseIcon /> : <MenuIcon />}
